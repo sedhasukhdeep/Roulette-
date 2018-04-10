@@ -1,0 +1,237 @@
+play_game1 <- function() {
+  win_amount = sample(c(1, -1),
+                      1,
+                      replace = TRUE,
+                      prob = c(18 / 37, 19 / 37))
+  
+  #In game 1 the number of bets are constant for each game i.e 1
+  
+  number_of_bet <- 1
+  
+  return (c(win_amount, number_of_bet))
+  
+  
+}
+
+#Calls the game1 function and checks for wins
+
+proportion_win_game1 <- function() {
+  wins <- 0
+  gamecounter <- 1
+  
+  #looping and checking the first element of the game for 1
+  
+  while (gamecounter <= 100000) {
+    if (play_game1()[1] == 1) {
+      wins = wins + 1
+    }
+    
+    gamecounter = gamecounter + 1
+    
+  }
+  
+  return (wins / 100000)
+}
+
+
+expected_game1 <- function() {
+  total_win <- 0
+  gamecounter <- 1
+  
+  while (gamecounter <= 100000) {
+    total_win = total_win + play_game1()[1]
+    gamecounter = gamecounter + 1
+  }
+  
+  return (total_win / 100000)
+}
+
+
+play_game2<- function(){
+  
+  win_amount = sample(c(35, -1),
+                      1,
+                      replace = TRUE,
+                      prob = c(1/37 , 36/37 ))
+  
+  #In game 1 the number of bets are constant for each game i.e 1
+  
+  number_of_bet <- 1
+  
+  return (c(win_amount, number_of_bet))
+  
+}
+
+proportion_win_game2<- function(){
+  
+  wins <- 0
+  gamecounter <- 1
+  
+  #looping and checking the first element of the game for 1
+  
+  while (gamecounter <= 100000) {
+    if (play_game2()[1] == 35) {
+      wins = wins + 1
+    }
+    
+    gamecounter = gamecounter + 1
+    
+  }
+  
+  return (wins / 100000)
+  
+}
+
+expected_game2<- function(){
+  
+  total_win <- 0
+  gamecounter <- 1
+  
+  while (gamecounter <= 100000) {
+    total_win = total_win + play_game2()[1]
+    gamecounter = gamecounter + 1
+  }
+  
+  return (total_win / 100000)
+  
+}
+
+
+play_game3<- function(){
+  win_amount<-0
+  number_bets<-0
+  bet_amount<-1
+  
+while(win_amount<10 && bet_amount<100){
+    current_winnings=play_game1()[1]
+    if(current_winnings == -1){
+      win_amount=win_amount - bet_amount
+      bet_amount=bet_amount*2
+    }
+    else{
+      win_amount=win_amount + bet_amount
+      bet_amount=1
+    }
+    number_bets=number_bets+1
+  }
+  
+  return(c(win_amount,number_bets))
+}
+
+expected_game3<-function(){
+  counter<-1
+  win_amount<-0
+
+  while(counter<=100000){
+    win_amount=win_amount+play_game3()[1]
+    counter=counter+1
+  }
+  return (win_amount/100000)
+}
+
+proportion_win_game3<- function(){
+  counter<-1
+  win_amount<-0
+  number_of_wins<-0
+  
+  while(counter<=100000){
+    win_amount=play_game3()[1]
+    if(win_amount==10){
+      number_of_wins=number_of_wins+1
+    }
+    counter=counter+1
+  }
+  
+  return (number_of_wins/100000)
+}
+
+
+play_game4<- function(){
+ 
+  list_game=c(1,2,3,4)
+  win_amount<-0
+  bet_amount= list_game[1]+list_game[length(list_game)]
+  number_bets<-0
+  
+  while(length(list_game)>=1 && bet_amount<100){
+    current_winnings<-sample(c(-bet_amount,bet_amount),1,replace = T, prob = c(19/37,18/37))
+    
+    if(current_winnings>0){
+      win_amount=win_amount+current_winnings
+      list_game=list_game[-c(1,length(list_game))]
+      
+      if(length(list_game)==1){
+        bet_amount<-list_game[1]
+        
+      }
+      
+      else {
+        bet_amount<-list_game[1]+list_game[length(list_game)]
+      }
+      
+    }
+    
+    else{
+      win_amount=win_amount+current_winnings
+      list_game=c(list_game, abs(current_winnings))
+      bet_amount=list_game[1]+list_game[length(list_game)]
+    }
+    
+    number_bets=number_bets+1
+    
+  }
+  
+  return (c(win_amount,number_bets))
+  
+}
+
+
+expected_game4<-function(){
+  
+  counter<-1
+  win_amount<-0
+  
+  while(counter<=100000){
+    win_amount=win_amount+play_game4()[1]
+    counter=counter+1
+  }
+  return (win_amount/100000)
+  
+}
+
+proportion_win_game4<- function(){
+  counter<-1
+  win_amount<-0
+  number_of_wins<-0
+  
+  while(counter<=100000){
+    win_amount=play_game4()[1]
+    if(win_amount==10){
+      number_of_wins=number_of_wins+1
+    }
+    counter=counter+1
+  }
+  
+  return (number_of_wins/100000)
+}
+
+table_2<-function(){
+  exp_win_g1<- replicate(5,expected_game1()[1])
+  exp_win_g2<- replicate(5,expected_game2()[1])
+  exp_win_g3<- replicate(5,expected_game3()[1])
+  exp_win_g4<- replicate(5,expected_game4()[1])
+  
+
+  
+  p_g1<-replicate(5,proportion_win_game1())
+  p_g2<-replicate(5,proportion_win_game2())
+  p_g3<-replicate(5,proportion_win_game3())
+  p_g4<-replicate(5,proportion_win_game4())
+  
+  
+  
+  n_g3<-replicate(5,play_game3()[2])
+  n_g4<-replicate(4,play_game4()[2])
+  
+  
+}
