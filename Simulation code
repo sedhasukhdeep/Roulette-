@@ -264,7 +264,8 @@ return (list(min(game1_expected_wins),max(game1_expected_wins)
              ,max(game3_expected_wins),min(game4_expected_wins)
              ,max(game4_expected_wins),min(game1_propwins)
              ,max(game1_propwins),min(game2_propwins)
-             ,max(game2_propwins),min(game3_propwins)
+             ,max(game2_propwins),min(game3_propwins),max(game3_propwins)
+             ,min(game4_propwins)
              ,max(game4_propwins),min(game1_playtime)
              ,max(game1_playtime),min(game2_playtime)
              ,max(game2_playtime),min(game3_playtime)
@@ -274,25 +275,25 @@ return (list(min(game1_expected_wins),max(game1_expected_wins)
 }
 
 game1_wins <- function() {
-  g1 <- replicate(100000, play_game1()[1] == 1)
+  g1 <- replicate(100000, play_game1()[1])
   
   return(list(mean(g1), sd(g1)))
 }
 
 game2_wins <- function() {
-  g2 <- replicate(100000, play_game2()[1] == 35)
+  g2 <- replicate(100000, play_game2()[1])
   
   return(list(mean(g2), sd(g2)))
 }
 
 game3_wins <- function() {
-  g3 <- replicate(100000, play_game3()[1] == 10)
+  g3 <- replicate(100000, play_game3()[1])
   
   return(list(mean(g3), sd(g3)))
 }
 
 game4_wins <- function() {
-  g4 <- replicate(100000, play_game4()[1] == 10)
+  g4 <- replicate(100000, play_game4()[1])
   
   return(list(mean(g4), sd(g4)))
 }
