@@ -1,4 +1,4 @@
-# Simulating a game of roulette in R to analyse various betting strategies
+# Simulating a game of roulette to analyse various betting strategies
 
 
 Probability assignment [STAT 683]
@@ -11,23 +11,27 @@ Assignment By	Sukhdeep Singh
 Student ID	44442467
 
 
-Game 1: Betting on red
-	Expected value: This is a Bernoulli trial therefore expected value can be given by the following expression
-E(X)=18/37*(1)+19/37*(-1)=-1/37
+## Game 1: Betting on red
+
+Expected value: This is a Bernoulli trial therefore expected value can be given by the following expression
+	```
+	E(X)=18/37*(1)+19/37*(-1)=-1/37
+	```
 Where 18/37 is the probability of winning, 19/37 is probability of losing, 1 and -1 are the amount gained in a scenario of a win/loss respectively.
 
-Simulation results for 100000 trials: -0.02342 (Percentage error = 0.0000358%)
+- Simulation results for amount earned(100000 trials): -0.02342 (Percentage error = 0.0000358%)
 
-	Proportion of wins: Number wins for this game will be theoretically equal to 
+- Proportion of wins: Number wins for this game will be theoretically equal to 
+	```
+	P(W)=18/37≈0.48648
+	```
+- Simulation results for winning proportion (100000 trials): 0.48651 (percentage error = 0.0000003%)
 
-P(W)=18/37≈0.48648
-	Simulation results for 100000 trials: 0.48651 (percentage error = 0.0000003%)
+- Expected playing time = 1 bet
 
-	Expected playing time = 1 bet
+- Maximum money player can lose = $1 
 
-	Maximum money player can lose = $1 
-
-	Maximum money player can earn = $1
+- Maximum money player can earn = $1
 
 
 Game 2: Betting on a number
