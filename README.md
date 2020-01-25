@@ -17,7 +17,7 @@ Please read the question statement here : https://bit.ly/37sqrWL
 Expected value: This is a Bernoulli trial therefore expected value can be given by the following expression
 
 ```
-E(X) = 18/37*(1) + 19/37*(-1) = -1/37
+E(X) = (18/37)*(1) + (19/37)*(-1) = -1/37
 ```	
 	
 Where 18/37 is the probability of winning, 19/37 is probability of losing, 1 and -1 are the amount gained in a scenario of a win/loss respectively.
@@ -43,7 +43,7 @@ Where 18/37 is the probability of winning, 19/37 is probability of losing, 1 and
 Expected value: This is a Bernoulli trial so the value of the winnings can be given by the following expression
 
 ```
-E(X)= 1/37*(35) + 36/37*(-1) = -1/37 ≈ -0.0270
+E(X)= (1/37)*(35) + (36/37)*(-1) = -1/37 ≈ -0.0270
 ```
 	
 Where 1/37 is the probability of winning, $35 amount won, 36/37 is the probability of losing,-1 is the money lost.
