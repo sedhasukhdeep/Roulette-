@@ -1,4 +1,6 @@
-# Roulette-
+# Simulating a game of roulette in R to analyse various betting strategies
+
+
 Probability assignment [STAT 683]
 
 Macquarie University
