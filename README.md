@@ -10,7 +10,7 @@ Assignment 1 solution, First semester 2018
 Assignment By	Sukhdeep Singh
 Student ID	44442467
 
-
+Please read the question statement here : https://bit.ly/37sqrWL
 
 ## Game 1: Betting on red
 
@@ -106,12 +106,9 @@ What is labouchere betting system: https://www.gamblingsites.com/systems-strateg
 |Martingale	|-1.98986, 38.03104	|0.92482, 0.274563	|17.46590,4.190035|
 |Labouchere	|-3.897, 70.4128	|0.95674, 0.204374	|8.57188, 7.751844|
 
-## Labouchere System’s  winning is most variable with std dev 70.41.28
-## Labouchere System’s play time is most variable with std dev 7.751844
+### Labouchere System’s  winning is most variable with std dev 70.41.28
+### Labouchere System’s play time is most variable with std dev 7.751844
 
-
-Rcode: Github Link
-https://github.com/sedhasukhdeep/Roulette-
 
 
 
